@@ -9,8 +9,5 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.post('/', usersCtrl.create);
 // GET /api/users/login
 router.post('/login', usersCtrl.login);
-// Get /api/users/check-token
-router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
-
 
 module.exports = router;
