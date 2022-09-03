@@ -2,10 +2,10 @@
     background-color: lightblue;
     display: flex;
     align-items: center;
-    position: fixed;
-    width: 100%;
-    left: 10%;
-    height: 10%;
+    position: sticky;
+    width: 90%;
+    height: 10vmin;
+    margin-left: 10%;
 }
 
 

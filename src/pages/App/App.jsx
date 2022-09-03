@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage';
-import MyGamesPage from '../MyGamesPage/MyGamesPage';
-import GamesPage from '../GamesPage/GamesPage';
+import MyCollectionPage from '../MyCollectionPage/MyCollectionPage';
+import AllGamesPage from '../AllGamesPage/AllGamesPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Header from '../../components/Header/Header'
+import About from '../../components/About/About'
 import './App.css';
 
 export default function App() {
@@ -19,12 +20,16 @@ export default function App() {
         <>
           <Routes>
             {/* Route components in here */}
-            <Route path='/games/mygames' element={<MyGamesPage />} />
-            <Route path='/games' element={<GamesPage />} />
+            <Route path='/games/mycollection' element={<MyCollectionPage />} />
+            <Route path='/games/all' element={<AllGamesPage />} />
+            <Route path="/*" element={<Navigate to="/games/mycollection" />} />
           </Routes>
         </>
         :
-        <AuthPage setUser={setUser}/>
+        <>
+          <About />
+          <AuthPage setUser={setUser}/>
+        </>
       }
     </main>
   );

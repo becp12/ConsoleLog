@@ -2,13 +2,13 @@
     font-family: 'Audiowide', cursive;
     background-color: lightblue;
     position: fixed;
-    height: 100vmin;
+    height: 100%;
     width: 10%;
-    margin: 0;
+    margin-top: -10vmin;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.75rem;
+    font-size: 2vmin;
 }
 
 .nav-logo {
@@ -27,10 +27,10 @@
     display: flex;
     flex-direction: column;
 }
-.navigation .nav-links {
+/* .navigation .nav-links {
     position: fixed;
     top: 10%;
-}
+} */
 
 .navigation .nav-links > a, .navigation .user-detail > a {
     padding: 20% 0;
@@ -45,4 +45,12 @@
 
 .navigation .user-detail > a {
     padding: 0;
+}
+
+.nav-links {
+    width: 100%;
+}
+
+.nav-links > .active {
+    background-color: white;
 }

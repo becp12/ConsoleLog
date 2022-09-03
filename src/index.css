@@ -93,10 +93,12 @@ code {
 .form-container {
   padding: 3vmin;
   border-radius: 1vmin;
+  margin: 0 10% 0 20%;
 }
 
 p.error-message {
-  text-align: center;
+  margin: 0 10% 1% 20%;
+  color: red;
 }
 
 form {
@@ -115,13 +117,13 @@ input {
   padding: 1vmin;
   font-size: 2vmin;
   border-radius: .5vmin;
-  color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
-/* input:focus {
-} */
+input:focus {
+  border-color: skyblue;
+}
 
 button, a.button {
   margin: 1vmin;
@@ -148,6 +150,8 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
+  background-color: whitesmoke;
+  color: gray;
 }
 
 button[type="submit"] {
