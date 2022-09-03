@@ -12,6 +12,9 @@ require('./config/database');
 
 
 app.use(logger('dev'));
+// Process data in body of request if 
+// Content-Type: 'application/json'
+// and put that data on req.body
 app.use(express.json());
 
 // Configure both serve-favicon & static middleware
@@ -23,8 +26,11 @@ app.use(require('./config/checkToken'));
 
 const port = process.env.PORT || 3001;
 
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+// Protect the api routes below from anon users
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

@@ -13,7 +13,7 @@ code {
 }
 
 /* CSS Custom Properties */
-:root {
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -22,7 +22,7 @@ code {
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
-}
+} */
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -35,8 +35,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
+  /* padding: 2vmin; */
   height: 100vh;
 }
 
@@ -47,6 +46,8 @@ code {
 
 #root {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .align-ctr {
@@ -83,9 +84,6 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
@@ -94,13 +92,10 @@ code {
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
 
 p.error-message {
-  color: var(--orange);
   text-align: center;
 }
 
@@ -108,7 +103,6 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
 }
 
 label {
@@ -120,27 +114,23 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
-input:focus {
-  border-color: var(--orange);
-}
+/* input:focus {
+} */
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid;
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -158,7 +148,6 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
 }
 
 button[type="submit"] {

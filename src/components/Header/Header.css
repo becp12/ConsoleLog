@@ -1,0 +1,17 @@
+.header {
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    left: 10%;
+    height: 10%;
+}
+
+
+
+.header > h1 {
+    font-family: 'Audiowide', cursive;
+    margin: 0;
+    font-size: 5vmin;
+}

@@ -1,0 +1,48 @@
+.navigation {
+    font-family: 'Audiowide', cursive;
+    background-color: lightblue;
+    position: fixed;
+    height: 100vmin;
+    width: 10%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.75rem;
+}
+
+.nav-logo {
+    width: 10%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-logo > img {
+    width: 10vmin;
+}
+
+.navigation > * {
+    display: flex;
+    flex-direction: column;
+}
+.navigation .nav-links {
+    position: fixed;
+    top: 10%;
+}
+
+.navigation .nav-links > a, .navigation .user-detail > a {
+    padding: 20% 0;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation .user-detail {
+    position: fixed;
+    bottom: 2%;
+}
+
+.navigation .user-detail > a {
+    padding: 0;
+}

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Audiowide', cursive;
 }
 
 .App-logo {
@@ -36,3 +37,13 @@
     transform: rotate(360deg);
   }
 }
+
+main {
+  margin: 0;
+}
+
+/* .page-space {
+  position: fixed;
+  left: 10%;
+  top: 10%;
+} */
