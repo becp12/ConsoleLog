@@ -16,7 +16,19 @@ export default function AllGamesPage() {
   return (
     <div className="all-games-page">
       <h1>All Games</h1>
-      {games.map(game => <div key={game.id}>{game.name},<br /> {game.platforms ? game.platforms.map(platform => <span>{platform.name}, </span>) : ""}</div>)}
+      {games.map(game =>
+        <div key={game.id}>
+          <br />
+          <h2>{game.name}</h2>
+          <p>{game.summary}</p>
+          <br />
+          <p>Game available on:
+          {game.platforms.map(p =>
+            <span key={p.id}> {p.name}, </span>
+          )}
+          </p>
+          <img src={game.coverImage} />
+        </div>)}
     </div>
   );
 }
