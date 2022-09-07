@@ -1,0 +1,14 @@
+.game-tile {
+    display: grid;
+    grid-template-rows: .75fr .5fr 5fr .5fr;
+}
+
+.game-tile > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-tile > h2, .game-tile > h4 {
+    margin: 0;
+}

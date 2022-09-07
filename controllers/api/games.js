@@ -2,11 +2,12 @@ const TwitchAPI = require('../../src/utilities/send-request-twitch');
 const Game = require('../../models/game')
 const Collection = require('../../models/collection')
 
-const SearchFields = 'name, platforms.name, summary, cover.image_id'
+const SearchFields = 'name, platforms.name, summary, cover.image_id, first_release_date'
 
 module.exports = {
     index,
     addToCollection,
+    // myIndex,
   };
 
 async function index(req, res) {
@@ -20,12 +21,19 @@ async function index(req, res) {
     res.json(gamesData)
 }
 
+// async function myIndex(req, res) {
+//     const games = await Collection.findOne({ user: req.user._id });
+//     // console.log(games);
+//     res.json(games);
+// }
+
 const mapGameData = (g) => ({
     gameId: g.id,
     name: g.name,
     platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: '-1', name: "Platform list not available"}],
     summary: g.summary ?? "***",
-    coverImage: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg` : "https://i.imgur.com/IvuLea5.png"
+    coverImage: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg` : "https://i.imgur.com/HnK8wNo.png",
+    releaseDate: g.first_release_date ? new Date(g.first_release_date * 1000).toUTCString().substring(0, 16) : "Not listed",
 });
 
 async function addToCollection(req, res) {

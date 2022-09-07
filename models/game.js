@@ -16,6 +16,7 @@ const gameSchema = new Schema({
     platforms: [platformSchema],
     summary: String,
     coverImage: String,
+    releaseDate: String,
 }, {
     timestamps: true,
 });
