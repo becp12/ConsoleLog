@@ -2,6 +2,8 @@ const TwitchAPI = require('../../src/utilities/send-request-twitch');
 const Game = require('../../models/game')
 const Collection = require('../../models/collection')
 
+const SearchFields = 'name, platforms.name, summary, cover.image_id'
+
 module.exports = {
     index,
     addToCollection,
@@ -11,7 +13,7 @@ async function index(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
         'POST',
-        'search "Elden Ring"; fields name, platforms.name, summary, cover.image_id;'
+        `search "Pokemon"; fields ${SearchFields}; limit 500;`
     )
     const gamesData = gamesJson.map(mapGameData)
     //console.log(JSON.stringify(gamesData, null, 2))
@@ -37,7 +39,7 @@ async function addToCollection(req, res) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(
             "https://api.igdb.com/v4/games",
             'POST',
-            `fields name, platforms.name, summary, cover.image_id; where id = ${gameId};`
+            `fields ${SearchFields}; where id = ${gameId}; limit 1;`
             );
         const gameData = gamesJson.map(mapGameData)[0]
         // console.log(JSON.stringify(gameData, null, 2))
@@ -54,7 +56,6 @@ async function addToCollection(req, res) {
     const collection = await Collection.addGameToCollection(req.user._id, game._id);
 
     console.log(collection);
-
 }
 
 /* --- HELPER FUNCTIONS --- */
