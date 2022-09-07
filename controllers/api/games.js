@@ -1,5 +1,6 @@
 const TwitchAPI = require('../../src/utilities/send-request-twitch');
 const Game = require('../../models/game')
+const Collection = require('../../models/collection')
 
 module.exports = {
     index,
@@ -39,19 +40,20 @@ async function addToCollection(req, res) {
             `fields name, platforms.name, summary, cover.image_id; where id = ${gameId};`
             );
         const gameData = gamesJson.map(mapGameData)[0]
-        console.log(JSON.stringify(gameData, null, 2))
+        // console.log(JSON.stringify(gameData, null, 2))
         game = new Game(gameData);
         // save to database
         game.save(function(err) {
-            console.log(game);
-            console.log(err);
+            // console.log(game);
+            // console.log(err);
             if (err) return res.status(400).json(err);
         })
     }
 
-    console.log(game);
-
     // save to user collection (req.user._id)
+    const collection = await Collection.addGameToCollection(req.user._id, game._id);
+
+    console.log(collection);
 
 }
 
