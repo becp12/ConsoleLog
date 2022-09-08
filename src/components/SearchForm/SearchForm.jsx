@@ -22,8 +22,8 @@ export default function SearchForm({ games, setGames }) {
     }
 
     return (
-        <div className="search-form">
-            <form onSubmit={updatedSearch}>
+        <div className="search-container">
+            <form onSubmit={updatedSearch} className="search-form">
                 <input
                     type="text"
                     name="search"

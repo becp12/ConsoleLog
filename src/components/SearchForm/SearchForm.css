@@ -1,0 +1,17 @@
+.search-form {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 3rem;
+    margin-bottom: 3%;
+}
+
+.search-form > button[type="submit"] {
+    grid-column: span 1;
+    height: 100%;
+    margin: 0;
+}
+
+.search-form > * {
+    height: 100%;
+    font-size: 1.5rem;
+}
