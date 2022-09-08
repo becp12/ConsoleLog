@@ -51,6 +51,7 @@ const mapGameData = (g) => ({
     platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: '-1', name: "Platform list not available"}],
     summary: g.summary ?? "***",
     coverImage: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg` : "https://i.imgur.com/HnK8wNo.png",
+    coverImageLarge: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg` : "https://i.imgur.com/wqWWm33.png",
     releaseDate: g.first_release_date ? new Date(g.first_release_date * 1000).toUTCString().substring(0, 16) : "Not listed",
 });
 
@@ -72,7 +73,6 @@ async function addToCollection(req, res) {
         game = new Game(gameData);
         // save to database
         game.save(function(err) {
-            // console.log(game);
             // console.log(err);
             if (err) return res.status(400).json(err);
         })
@@ -84,27 +84,25 @@ async function addToCollection(req, res) {
     // console.log(collection);
 }
 
-// async function getOneGame(req, res) {
-//     const gameId = req.params.gameId;
-//     const gamesJson = await TwitchAPI.sendRequestTwitch(
-//         "https://api.igdb.com/v4/games",
-//         'POST',
-//         `fields ${SearchFields}; where id = ${gameId}; limit 1;`
-//         );
-//     const gameData = gamesJson.map(mapGameData)[0]
-//     res.json(gameData);
-// }
-
 async function show(req, res) {
-    const gamesJson = await TwitchAPI.sendRequestTwitch(
-        "https://api.igdb.com/v4/games",
-        'POST',
-        `fields ${SearchFields}; where id = ${req.params.gameId}; limit 1;`
-    );
-    const gameData = gamesJson.map(mapGameData)[0]
+    const collection = await Collection.findOne({ user: req.user._id }).populate('games');
+    console.log(collection);
+    const game = collection.games.find(game => game.gameId === req.params.gameId)
+    if (!game) {
+        const gamesJson = await TwitchAPI.sendRequestTwitch(
+            "https://api.igdb.com/v4/games",
+            'POST',
+            `fields ${SearchFields}; where id = ${req.params.gameId}; limit 1;`
+        );
+        const gameData = gamesJson.map(mapGameData)[0]
+        res.json(gameData);
+    } else {
+        res.json(game);
+    }
     // console.log(JSON.stringify(gameData, null, 2))
-    game = new Game(gameData);
-    console.log(game)
-    res.json(game);
+    // game = new Game(gameData);
+    // console.log(game)
 }
+
+
 /* --- HELPER FUNCTIONS --- */
