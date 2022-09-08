@@ -1,6 +1,5 @@
 .game-tile {
     display: grid;
-    grid-template-rows: .75fr .5fr 5fr .5fr;
 }
 
 .game-tile > * {
