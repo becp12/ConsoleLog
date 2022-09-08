@@ -16,11 +16,11 @@ const gameSchema = new Schema({
     platforms: [platformSchema],
     summary: String,
     coverImage: String,
+    coverImageLarge: String,
     releaseDate: String,
+    playSession: [playSessionSchema],
 }, {
     timestamps: true,
 });
-
-
 
 module.exports = mongoose.model('Game', gameSchema);
