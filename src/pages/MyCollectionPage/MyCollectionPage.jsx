@@ -9,7 +9,7 @@ export default function MyCollectionPage() {
   useEffect(function() {
     async function getAllGames() {
       const games = await gamesAPI.getMyGames();
-      console.log(games)
+      // console.log(games)
       setGames(games);
     }
     getAllGames();

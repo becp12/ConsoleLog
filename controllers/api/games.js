@@ -96,17 +96,14 @@ async function addToCollection(req, res) {
 // }
 
 async function show(req, res) {
-    const game = await Game.findById(req.params.id);
-    if (!game) {
-        const gamesJson = await TwitchAPI.sendRequestTwitch(
-            "https://api.igdb.com/v4/games",
-            'POST',
-            `fields ${SearchFields}; where id = ${gameId}; limit 1;`
-            );
-        const gameData = gamesJson.map(mapGameData)[0]
-        // console.log(JSON.stringify(gameData, null, 2))
-        game = new Game(gameData);
-    }
+    const gamesJson = await TwitchAPI.sendRequestTwitch(
+        "https://api.igdb.com/v4/games",
+        'POST',
+        `fields ${SearchFields}; where id = ${req.params.gameId}; limit 1;`
+    );
+    const gameData = gamesJson.map(mapGameData)[0]
+    // console.log(JSON.stringify(gameData, null, 2))
+    game = new Game(gameData);
     console.log(game)
     res.json(game);
 }
