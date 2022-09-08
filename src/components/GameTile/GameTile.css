@@ -5,8 +5,11 @@
 
 .game-tile > * {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 .game-tile > h2, .game-tile > h4 {

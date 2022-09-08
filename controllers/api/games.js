@@ -9,6 +9,8 @@ module.exports = {
     addToCollection,
     myIndex,
     searchForGame,
+    // getOneGame,
+    show,
   };
 
 async function index(req, res) {
@@ -17,7 +19,6 @@ async function index(req, res) {
         'POST',
         `fields ${SearchFields}; limit 100; sort total_rating desc; where total_rating != null; where total_rating_count > 200;`
     )
-    
     const gamesData = gamesJson.map(mapGameData)
     //console.log(JSON.stringify(gamesData, null, 2))
     res.json(gamesData)
@@ -32,7 +33,7 @@ async function searchForGame(req, res) {
     )
     
     const gamesData = gamesJson.map(mapGameData)
-    console.log(gamesData)
+    // console.log(gamesData)
     //console.log(JSON.stringify(gamesData, null, 2))
     res.json(gamesData)
 }
@@ -80,7 +81,33 @@ async function addToCollection(req, res) {
     // save to user collection (req.user._id)
     const collection = await Collection.addGameToCollection(req.user._id, game._id);
 
-    console.log(collection);
+    // console.log(collection);
 }
 
+// async function getOneGame(req, res) {
+//     const gameId = req.params.gameId;
+//     const gamesJson = await TwitchAPI.sendRequestTwitch(
+//         "https://api.igdb.com/v4/games",
+//         'POST',
+//         `fields ${SearchFields}; where id = ${gameId}; limit 1;`
+//         );
+//     const gameData = gamesJson.map(mapGameData)[0]
+//     res.json(gameData);
+// }
+
+async function show(req, res) {
+    const game = await Game.findById(req.params.id);
+    if (!game) {
+        const gamesJson = await TwitchAPI.sendRequestTwitch(
+            "https://api.igdb.com/v4/games",
+            'POST',
+            `fields ${SearchFields}; where id = ${gameId}; limit 1;`
+            );
+        const gameData = gamesJson.map(mapGameData)[0]
+        // console.log(JSON.stringify(gameData, null, 2))
+        game = new Game(gameData);
+    }
+    console.log(game)
+    res.json(game);
+}
 /* --- HELPER FUNCTIONS --- */
