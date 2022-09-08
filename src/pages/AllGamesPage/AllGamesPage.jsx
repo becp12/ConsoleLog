@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './AllGamesPage.css';
 import AllGameTiles from '../../components/AllGameTiles/AllGameTiles'
+import SearchForm from '../../components/SearchForm/SearchForm'
 import * as gamesAPI from '../../utilities/games-api';
 
 export default function AllGamesPage() {
@@ -21,22 +22,8 @@ export default function AllGamesPage() {
   return (
     <div className="all-games-page">
       <h1>All Games</h1>
+      <SearchForm games={games} setGames={setGames}/>
       <AllGameTiles games={games}/>
-      {/* {games.map(game =>
-        <div key={game.gameId}>
-          <br />
-          <h2>{game.name}</h2>
-          <p>{game.summary}</p>
-          <br />
-          <p>Game available on:
-          {game.platforms.map(p =>
-            <span key={p.id}> {p.name}, </span>
-          )}
-          </p>
-          <img src={game.coverImage} />
-          <button onClick={() => handleAddToCollection(game.gameId)}>Add to My Collection</button>
-        </div>
-      )} */}
     </div>
   );
 }

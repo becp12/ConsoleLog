@@ -8,15 +8,31 @@ module.exports = {
     index,
     addToCollection,
     // myIndex,
+    searchForGame,
   };
 
 async function index(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
         'POST',
-        `search "Pokemon"; fields ${SearchFields}; limit 500;`
+        `fields ${SearchFields}; limit 500;`
     )
+    
     const gamesData = gamesJson.map(mapGameData)
+    //console.log(JSON.stringify(gamesData, null, 2))
+    res.json(gamesData)
+}
+
+async function searchForGame(req, res) {
+    console.log(req.params.searchData, "Search For Game")
+    const gamesJson = await TwitchAPI.sendRequestTwitch(
+        "https://api.igdb.com/v4/games",
+        'POST',
+        `search "${req.params.searchData}"; fields ${SearchFields}; limit 500;`
+    )
+    
+    const gamesData = gamesJson.map(mapGameData)
+    console.log(gamesData)
     //console.log(JSON.stringify(gamesData, null, 2))
     res.json(gamesData)
 }
