@@ -12,3 +12,7 @@ export function addToCollection(gameId) {
 export function search(searchData) {
   return sendRequest(`${BASE_URL}/search/${searchData}`, 'POST')
 }
+
+export function getMyGames() {
+  return sendRequest(`${BASE_URL}/mycollection`, 'GET')
+}

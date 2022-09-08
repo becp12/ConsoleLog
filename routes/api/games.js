@@ -9,6 +9,9 @@ router.get('/', gamesCtrl.index);
 // POST /api/games/collection/:gameid
 router.post('/collection/:gameid', gamesCtrl.addToCollection)
 
+// GET /api/games/mycollection
+router.get('/mycollection', gamesCtrl.myIndex)
+
 // POST /api/games/search/:searchData
 router.post('/search/:searchData', gamesCtrl.searchForGame)
 

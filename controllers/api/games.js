@@ -7,7 +7,7 @@ const SearchFields = 'name, platforms.name, summary, cover.image_id, first_relea
 module.exports = {
     index,
     addToCollection,
-    // myIndex,
+    myIndex,
     searchForGame,
   };
 
@@ -15,7 +15,7 @@ async function index(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
         'POST',
-        `fields ${SearchFields}; limit 500;`
+        `fields ${SearchFields}; limit 100; sort total_rating desc; where total_rating != null; where total_rating_count > 200;`
     )
     
     const gamesData = gamesJson.map(mapGameData)
@@ -28,7 +28,7 @@ async function searchForGame(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
         'POST',
-        `search "${req.params.searchData}"; fields ${SearchFields}; limit 500;`
+        `search "${req.params.searchData}"; fields ${SearchFields}; limit 50;`
     )
     
     const gamesData = gamesJson.map(mapGameData)
@@ -37,11 +37,12 @@ async function searchForGame(req, res) {
     res.json(gamesData)
 }
 
-// async function myIndex(req, res) {
-//     const games = await Collection.findOne({ user: req.user._id });
-//     // console.log(games);
-//     res.json(games);
-// }
+async function myIndex(req, res) {
+    const collection = await Collection.findOne({ user: req.user._id }).populate('games');
+    if (!collection) return;
+    // console.log(games);
+    res.json(collection.games);
+}
 
 const mapGameData = (g) => ({
     gameId: g.id,
