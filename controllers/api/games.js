@@ -87,7 +87,7 @@ async function addToCollection(req, res) {
 async function show(req, res) {
     const collection = await Collection.findOne({ user: req.user._id }).populate('games');
     console.log(collection);
-    const game = collection.games.find(game => game.gameId === req.params.gameId)
+    const game = collection?.games.find(game => game.gameId === req.params.gameId)
     if (!game) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(
             "https://api.igdb.com/v4/games",
