@@ -1,0 +1,11 @@
+.game-info-nav {
+    background-color: lightgrey;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;*/
+    width: 100%;
+}
+
+button.nav-link {
+    border-radius: 0;
+}

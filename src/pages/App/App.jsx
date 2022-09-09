@@ -23,11 +23,11 @@ export default function App() {
             {/* Route components in here */}
             <Route path='/games/mycollection' element={<MyCollectionPage />} />
             <Route path='/games/all' element={<AllGamesPage />} />
-            <Route path='/*' element={<Navigate to="/games/mycollection" />} />
             <Route
               path='/games/:gameId'
               element={<GameDetailPage />}
             />
+            <Route path='/*' element={<Navigate to="/games/mycollection" />} />
           </Routes>
         </>
         :
