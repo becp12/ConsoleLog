@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as gamesAPI from '../../utilities/games-api';
+import GameDetail from '../../components/GameDetail/GameDetail'
 import './GameDetailPage.css';
 
 export default function GameDetailPage() {
@@ -10,15 +11,17 @@ export default function GameDetailPage() {
     useEffect(function() {
         async function getGame() {
             const selectedGame = await gamesAPI.getById(gameId);
-            console.log(selectedGame);
             setGame(selectedGame);
         }
         getGame();
-    }, []);
+    }, [gameId]);
+
+    // console.log(game);
 
   return (
-    <div>
-        <h1>Game Detail Page - {game.name}</h1>
+    <div className="game-detail-page">
+        <h1>{game.name}</h1>
+        <GameDetail game={game} />
     </div>
   );
 }

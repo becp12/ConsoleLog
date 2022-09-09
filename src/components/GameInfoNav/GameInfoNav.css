@@ -1,0 +1,6 @@
+.game-info-nav {
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

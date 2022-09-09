@@ -1,0 +1,18 @@
+.game-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.game-detail > .image-div {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+
+.game-detail > * {
+    border: 2px black solid;
+}
+
+.game-detail > .image-div > img{
+    border: 2px blue solid;
+}
