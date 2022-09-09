@@ -6,13 +6,9 @@
 .game-detail > .image-div {
     display: flex;
     justify-content: flex-end;
-    padding-right: 5%;
-}
-
-.game-detail > * {
-    border: 2px black solid;
+    padding-right: 25%;
 }
 
 .game-detail > .image-div > img{
-    border: 2px blue solid;
+    border-radius: 1rem;
 }

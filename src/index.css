@@ -23,10 +23,6 @@ code {
   --text-light: #968c84;
   --text-dark: #615954;
 } */
-/* 
-.nav {
-  --bs-link-color: var(--bs-purple);
-} */
 
 *, *:before, *:after {
   box-sizing: border-box;

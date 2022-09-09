@@ -1,3 +1,15 @@
 .game-info-container {
-    margin: 2.5% 5%;
+    box-sizing: border-box;
+    background-color: rgb(194, 243, 194);
+    border-radius: 0 0 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
+    margin-top: 0;
+}
+
+.platform-list {
+    list-style: none;
+}
+
+.tab-content {
+    padding: 1rem;
 }
