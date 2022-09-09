@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import * as gamesAPI from '../../utilities/games-api';
 import GameDetail from '../../components/Detail Page/GameDetail/GameDetail'
 import './GameDetailPage.css';
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 export default function GameDetailPage() {
   const [game, setGame] = useState([]);
@@ -22,10 +23,14 @@ export default function GameDetailPage() {
     <>
       {!game.name
         ?
-        <div>
-            <img src="https://c.tenor.com/v_OKGJFSkOQAAAAC/loading-gif.gif" />
+        <div className='pacman-loader'>
+          <PacmanLoader
+            color="#f5e742"
+            size={50}
+            speedMultiplier={3}
+          />
         </div>
-        : 
+        :
         <div className="game-detail-page">
           <h1>{game.name}</h1>
           <GameDetail game={game} />
