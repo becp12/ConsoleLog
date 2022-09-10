@@ -21,8 +21,8 @@ export default function GameInfoContainer({ game }) {
                         {platforms}
                     </ul>
                 </div>
-                <div className="tab-pane fade" id="playsessions"><PlaySessions /></div>
-                <div className="tab-pane fade" id="addplaysessions"><PlaySessionForm gameObjId={game._id} playSession={playSession} setPlaySession={setPlaySession}/></div>
+                <div className="tab-pane fade" id="playsessions"><PlaySessions playSession={playSession} setPlaySession={setPlaySession} game={game} /></div>
+                <div className="tab-pane fade" id="addplaysessions"><PlaySessionForm gameObjId={game._id} playSession={playSession} setPlaySession={setPlaySession} /></div>
                 
             </div>
         </div>
