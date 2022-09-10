@@ -2,12 +2,12 @@
 import './AllGameTiles.css';
 import GameTile from '../GameTile/GameTile'
 
-export default function AllGamesPage({ games }) {
+export default function AllGameTiles({ games, collection, setCollection }) {
 
   return (
     <div className="all-game-tiles">
-        {games.map(game =>
-          <GameTile game={game}/>
+        {games?.map(game =>
+          <GameTile collection={collection} game={game} setCollection={setCollection}/>
         )}
     </div>
   );

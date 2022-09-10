@@ -4,13 +4,13 @@ import AllGameTiles from '../../components/AllGameTiles/AllGameTiles'
 import * as gamesAPI from '../../utilities/games-api';
 
 export default function MyCollectionPage() {
-  const [games, setGames] = useState([]);
+  const [collection, setCollection] = useState([]);
 
   useEffect(function() {
     async function getAllGames() {
-      const games = await gamesAPI.getMyGames();
+      const collection = await gamesAPI.getMyGames();
       // console.log(games)
-      setGames(games);
+      setCollection(collection);
     }
     getAllGames();
   }, []);
@@ -19,7 +19,7 @@ export default function MyCollectionPage() {
   return (
     <div className="my-games-page">
       <h1>My Collection</h1>
-      <AllGameTiles games={games} />
+      <AllGameTiles collection={collection} setCollection={setCollection} games={collection?.games} />
       {/* {games ?
         games.map(game =>
           <div key={game.gameId}>

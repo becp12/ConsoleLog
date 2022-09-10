@@ -6,11 +6,14 @@ import * as gamesAPI from '../../utilities/games-api';
 
 export default function AllGamesPage() {
   const [games, setGames] = useState([]);
+  const [collection, setCollection] = useState([]);
 
   useEffect(function() {
     async function getGames() {
       const games = await gamesAPI.getAll();
+      const collection = await gamesAPI.getMyGames();
       setGames(games);
+      setCollection(collection);
     }
     getGames();
   }, []);
@@ -23,7 +26,7 @@ export default function AllGamesPage() {
     <div className="all-games-page">
       <h1>All Games</h1>
       <SearchForm games={games} setGames={setGames}/>
-      <AllGameTiles games={games}/>
+      <AllGameTiles games={games} collection={collection} setCollection={setCollection}/>
     </div>
   );
 }
