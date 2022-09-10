@@ -31,6 +31,7 @@ const ensureLoggedIn = require('./config/ensureLoggedIn');
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/games', require('./routes/api/games'));
+app.use('/api/playsessions', require('./routes/api/playSession'))
 // Protect the api routes below from anon users
 
 

@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const playSessionSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
-    date: Date,
+    date: {type: Date, required: true},
     time: String,
-    duration: Number,
+    duration: {type: Number, required: true},
     notes: String,
 }, {
     timestamps: true,

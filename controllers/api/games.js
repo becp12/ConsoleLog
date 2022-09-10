@@ -1,7 +1,6 @@
 const TwitchAPI = require('../../src/utilities/send-request-twitch');
 const Game = require('../../models/game')
 const Collection = require('../../models/collection')
-
 const SearchFields = 'name, platforms.name, summary, cover.image_id, first_release_date'
 
 module.exports = {
@@ -9,7 +8,6 @@ module.exports = {
     addToCollection,
     myIndex,
     searchForGame,
-    // getOneGame,
     show,
     delete: deleteGame,
   };
@@ -21,7 +19,6 @@ async function index(req, res) {
         `fields ${SearchFields}; limit 100; sort total_rating desc; where total_rating != null; where total_rating_count > 200;`
     )
     const gamesData = gamesJson.map(mapGameData)
-    //console.log(JSON.stringify(gamesData, null, 2))
     res.json(gamesData)
 }
 
@@ -32,17 +29,13 @@ async function searchForGame(req, res) {
         'POST',
         `search "${req.params.searchData}"; fields ${SearchFields}; limit 50;`
     )
-    
     const gamesData = gamesJson.map(mapGameData)
-    // console.log(gamesData)
-    //console.log(JSON.stringify(gamesData, null, 2))
     res.json(gamesData)
 }
 
 async function myIndex(req, res) {
     const collection = await Collection.findOne({ user: req.user._id }).populate('games');
     if (!collection) return;
-    // console.log(games);
     res.json(collection);
 }
 
@@ -70,24 +63,19 @@ async function addToCollection(req, res) {
             `fields ${SearchFields}; where id = ${gameId}; limit 1;`
             );
         const gameData = gamesJson.map(mapGameData)[0]
-        // console.log(JSON.stringify(gameData, null, 2))
         game = new Game(gameData);
         // save to database
         game.save(function(err) {
-            // console.log(err);
             if (err) return res.status(400).json(err);
         })
     }
-
     // save to user collection (req.user._id)
     const collection = await Collection.addGameToCollection(req.user._id, game._id);
     res.json(collection)
-    // console.log(collection);
 }
 
 async function show(req, res) {
     const collection = await Collection.findOne({ user: req.user._id }).populate('games');
-    console.log(collection);
     const game = collection?.games.find(game => game.gameId === req.params.gameId)
     if (!game) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(
@@ -100,15 +88,11 @@ async function show(req, res) {
     } else {
         res.json(game);
     }
-    // console.log(JSON.stringify(gameData, null, 2))
-    // game = new Game(gameData);
-    // console.log(game)
 }
 
 async function deleteGame(req, res) {
     const collection = await Collection.findOne({user: req.user._id}).populate('games');
     collection.games = collection.games.filter((g) => g.gameId !== req.params.gameId);
-    
     collection.save();
     res.json(collection)
 };

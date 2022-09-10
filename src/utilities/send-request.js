@@ -17,5 +17,5 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   // res.json() returns a promise that resolves
   // to the data that was sent back by the server
   if (res.ok) return res.json();
-  throw new Error('Bad Request');
+  throw new Error(`Bad Request - ${await res.text()}`);
 }
