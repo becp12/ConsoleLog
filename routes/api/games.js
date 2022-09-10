@@ -7,18 +7,19 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.get('/', gamesCtrl.index);
 
 // POST /api/games/collection/:gameid
-router.post('/collection/:gameid', gamesCtrl.addToCollection)
+router.post('/collection/:gameid', ensureLoggedIn, gamesCtrl.addToCollection)
+
+// DELETE /projects/:id (delete functionality)
+router.delete('/collection/:gameId', ensureLoggedIn, gamesCtrl.delete);
 
 // GET /api/games/mycollection
-router.get('/mycollection', gamesCtrl.myIndex)
+router.get('/mycollection', ensureLoggedIn, gamesCtrl.myIndex)
 
 // POST /api/games/search/:searchData
 router.post('/search/:searchData', gamesCtrl.searchForGame)
 
-// // POST /api/games/:gameId
-// router.post('/:gameId', gamesCtrl.getOneGame)
-
 // POST /api/games/:gameId
 router.get('/:gameId', gamesCtrl.show);
+
 
 module.exports = router;

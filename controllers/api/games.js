@@ -11,6 +11,7 @@ module.exports = {
     searchForGame,
     // getOneGame,
     show,
+    delete: deleteGame,
   };
 
 async function index(req, res) {
@@ -42,11 +43,11 @@ async function myIndex(req, res) {
     const collection = await Collection.findOne({ user: req.user._id }).populate('games');
     if (!collection) return;
     // console.log(games);
-    res.json(collection.games);
+    res.json(collection);
 }
 
 const mapGameData = (g) => ({
-    gameId: g.id,
+    gameId: g.id.toString(),
     name: g.name,
     platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: '-1', name: "Platform list not available"}],
     summary: g.summary ?? "***",
@@ -80,7 +81,7 @@ async function addToCollection(req, res) {
 
     // save to user collection (req.user._id)
     const collection = await Collection.addGameToCollection(req.user._id, game._id);
-
+    res.json(collection)
     // console.log(collection);
 }
 
@@ -104,5 +105,12 @@ async function show(req, res) {
     // console.log(game)
 }
 
+async function deleteGame(req, res) {
+    const collection = await Collection.findOne({user: req.user._id}).populate('games');
+    collection.games = collection.games.filter((g) => g.gameId !== req.params.gameId);
+    
+    collection.save();
+    res.json(collection)
+};
 
 /* --- HELPER FUNCTIONS --- */

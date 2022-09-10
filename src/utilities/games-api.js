@@ -9,6 +9,10 @@ export function addToCollection(gameId) {
   return sendRequest(`${BASE_URL}/collection/${gameId}`, 'POST')
 }
 
+export function removeFromCollection(gameId) {
+  return sendRequest(`${BASE_URL}/collection/${gameId}`, 'DELETE');
+}
+
 export function search(searchData) {
   return sendRequest(`${BASE_URL}/search/${searchData}`, 'POST')
 }

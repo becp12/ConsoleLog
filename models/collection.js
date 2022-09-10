@@ -14,7 +14,8 @@ collectionSchema.statics.addGameToCollection = async function(userId, gameId) {
         { user: userId, "$addToSet": { "games":gameId } },
         // upsert option creates the doc if it doesn't exist!
         { upsert: true, new: true }
-    );
+    )
+    .populate('games');
 }
 
 module.exports = mongoose.model('Collection', collectionSchema);
