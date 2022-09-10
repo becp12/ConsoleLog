@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import './GameInfoContainer.css';
 import Summary from '../Summary/Summary'
 import PlaySessionForm from '../PlaySessionForm/PlaySessionForm';
+import PlaySessions from '../PlaySessions/PlaySessions';
 
 export default function GameInfoContainer({ game }) {
+    const [playSession, setPlaySession] = useState([])
+
     console.log(game)
+    
     const platforms = game.platforms.map(p => <li>{p.name}</li>)
+    
     return (
         <div className='game-info-container'>
             <div className="tab-content" id="myTabContent">
@@ -15,8 +21,8 @@ export default function GameInfoContainer({ game }) {
                         {platforms}
                     </ul>
                 </div>
-                <div className="tab-pane fade" id="playsessions">PLAY SESSION COMPONENT</div>
-                <div className="tab-pane fade" id="addplaysessions"><PlaySessionForm gameObjId={game._id}/></div>
+                <div className="tab-pane fade" id="playsessions"><PlaySessions /></div>
+                <div className="tab-pane fade" id="addplaysessions"><PlaySessionForm gameObjId={game._id} playSession={playSession} setPlaySession={setPlaySession}/></div>
                 
             </div>
         </div>
