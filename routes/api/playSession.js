@@ -7,6 +7,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/:gameObjId', sessionsCtrl.create);
 
 // GET /api/playsessions
-router.get('/:gameId/playsessions', sessionsCtrl.getAll)
+// router.get('/:gameId/playsessions', sessionsCtrl.getAll)
 
 module.exports = router;

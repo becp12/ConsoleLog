@@ -2,7 +2,7 @@ const Game = require('../../models/game')
 
 module.exports = {
     create,
-    getAll,
+    // getAll,
   };
 
 async function create(req, res) {
@@ -19,11 +19,11 @@ async function create(req, res) {
     }
 }
 
-async function getAll(req, res) {
-    const game = await Game.findOne({ gameId: req.params.gameId }).populate('playSession');
-    console.log(game.playSession)
-    if (!game.playSession) return;
-    res.json(game.playSession);
-}
+// async function getAll(req, res) {
+//     const game = await Game.findOne({ gameId: req.params.gameId }).populate('playSession');
+//     console.log(game.playSession)
+//     if (!game.playSession) return;
+//     res.json(game.playSession);
+// }
     
 /* --- HELPER FUNCTIONS --- */

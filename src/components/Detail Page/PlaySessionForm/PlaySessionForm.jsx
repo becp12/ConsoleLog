@@ -33,6 +33,8 @@ export default function PlaySessionForm({ gameObjId, playSession, setPlaySession
                 duration: '',
                 notes: '',
             });
+            const sessionTab = new window.bootstrap.Tab(document.querySelector('#myTab button[data-bs-target="#playsessions"]'));
+            sessionTab.show();
         } catch (err) {
             setError('Add Session Failed - Try Again');
         }

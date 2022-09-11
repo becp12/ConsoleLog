@@ -4,20 +4,23 @@ import './PlaySessions.css';
 import * as playsessionAPI from '../../../utilities/playsessions-api'
 
 export default function PlaySessions({ playSession, game, setPlaySession }) {
-  const { gameId } = useParams();
+  //const { gameId } = useParams();
+
+  let idToShow = playSession.length !== game.playSession.length ? playSession.at(-1)._id : undefined;
 
   return (
     <div className="play-session-container">
-      <h3>Play Session Component</h3>
       <div className="accordion" id="accordionExample">
-        {game.playSession.map(p => (
-          <div className="accordion-item">
+        {[...playSession]
+            .sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1 )
+            .map((p, idx) => (
+          <div className="accordion-item" key={idx}>
             <h2 className="accordion-header" id={`heading${p._id}`}>
-              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${p._id}`}>
-                {new Date(p.date).toLocaleDateString()}
+              <button className={`accordion-button ${(idToShow === undefined ? idx === 0 : p._id === idToShow) ? "" : "collapsed"}`} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${p._id}`}>
+                {new Date(p.date)?.toLocaleDateString()}
               </button>
             </h2>
-            <div id={`collapse${p._id}`} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id={`collapse${p._id}`} className={`accordion-collapse collapse ${(idToShow === undefined ? idx === 0 : p._id === idToShow) ? "show" : ""}`} data-bs-parent="#accordionExample">
               <div className="accordion-body">
                 {p.notes}
               </div>

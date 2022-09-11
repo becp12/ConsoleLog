@@ -1,0 +1,30 @@
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: lightgreen;
+    box-shadow: none;
+}
+ 
+.accordion-button {
+    width: 100%;
+    background-color: lightgreen;
+}
+
+button.accordion-button {
+    margin: 0;
+}
+
+.accordion-button:focus {
+    border: 0;
+    box-shadow: none;
+}
+
+.accordion-body {
+    text-align: left;
+}
+
+.accordion-item {
+    width: auto;
+    height: auto;
+    background-color: none;
+    margin: 1vmin;
+}
