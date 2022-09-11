@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 import './PlaySessions.css';
-import * as playsessionAPI from '../../../utilities/playsessions-api'
+// import * as playsessionAPI from '../../../utilities/playsessions-api'
 
 export default function PlaySessions({ playSession, game, setPlaySession }) {
   //const { gameId } = useParams();
-
+  if (!playSession) return <div></div>
   let idToShow = playSession.length !== game.playSession.length ? playSession.at(-1)._id : undefined;
 
   return (

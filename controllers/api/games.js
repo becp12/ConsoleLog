@@ -75,8 +75,9 @@ async function addToCollection(req, res) {
 }
 
 async function show(req, res) {
-    const collection = await Collection.findOne({ user: req.user._id }).populate('games');
-    const game = collection?.games.find(game => game.gameId === req.params.gameId)
+    // const collection = await Collection.findOne({ user: req.user._id }).populate('games');
+    // const game = collection?.games.find(game => game.gameId === req.params.gameId)
+    const game = await Game.findOne({ gameId: req.params.gameId })
     if (!game) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(
             "https://api.igdb.com/v4/games",
@@ -86,6 +87,7 @@ async function show(req, res) {
         const gameData = gamesJson.map(mapGameData)[0]
         res.json(gameData);
     } else {
+        game.playSession = game.playSession.filter(ps => ps.user.equals(req.user._id));
         res.json(game);
     }
 }

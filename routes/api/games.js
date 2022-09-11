@@ -18,7 +18,7 @@ router.get('/mycollection', ensureLoggedIn, gamesCtrl.myIndex)
 // POST /api/games/search/:searchData
 router.post('/search/:searchData', gamesCtrl.searchForGame)
 
-// POST /api/games/:gameId
+// GET /api/games/:gameId
 router.get('/:gameId', gamesCtrl.show);
 
 
