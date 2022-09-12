@@ -17,8 +17,12 @@ export default function App() {
   
   useEffect(function() {
     async function getAllGames() {
-      const collection = await gamesAPI.getMyGames();
-      setCollection(collection);
+      try {
+        const collection = await gamesAPI.getMyGames();
+        setCollection(collection);
+      } catch(err) {
+        
+      }
     }
     getAllGames();
   }, []);
