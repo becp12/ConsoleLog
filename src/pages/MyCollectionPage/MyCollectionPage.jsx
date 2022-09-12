@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './MyCollectionPage.css';
 import AllGameTiles from '../../components/AllGameTiles/AllGameTiles'
 import * as gamesAPI from '../../utilities/games-api';
@@ -11,7 +11,7 @@ export default function MyCollectionPage({ collection, setCollection }) {
       setCollection(collection);
     }
     getAllGames();
-  }, []);
+  }, [setCollection]);
 
 
   return (

@@ -15,7 +15,7 @@ export default function AllGamesPage({ collection, setCollection }) {
       setCollection(collection);
     }
     getGames();
-  }, []);
+  }, [setCollection]);
 
   return (
     <div className="all-games-page">
