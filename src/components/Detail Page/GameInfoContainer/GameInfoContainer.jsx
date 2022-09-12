@@ -7,7 +7,7 @@ import PlaySessions from '../PlaySessions/PlaySessions';
 export default function GameInfoContainer({ game, collection, setCollection }) {
     const [playSession, setPlaySession] = useState(game?.playSession)
 
-    const platforms = game.platforms.map(p => <li>{p.name}</li>)
+    const platforms = game.platforms.map(p => <li key={p.id}>{p.name}</li>)
     
     return (
         <div className='game-info-container'>
