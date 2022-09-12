@@ -9,16 +9,13 @@ export default function SearchForm({ games, setGames }) {
 
     async function updatedSearch(evt) {
         evt.preventDefault();
-        const searchResult = await gamesAPI.search(formData.search)
-        // console.log(formData + "*****" + searchResult)
+        const searchResult = await gamesAPI.search(formData.search);
         setGames(searchResult);
     }
 
     function handleChange(evt) {
         const newFormData = {[evt.target.name]: evt.target.value}
         setFormData(newFormData);
-        // updatedSearch(evt.target.value);
-        // console.log(formData)
     }
 
     return (

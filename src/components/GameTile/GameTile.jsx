@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './GameTile.css';
 import { Link } from "react-router-dom";
 import * as gamesAPI from '../../utilities/games-api';
@@ -24,15 +23,19 @@ export default function GameTile({ game, collection, setCollection }) {
           <img src={game.coverImage} alt="Game cover" />
         </div>
       </Link>
-      { collection?.games?.some((g) => g.gameId === game.gameId) ?
-            <button onClick={() => handleRemoveFromCollection(game.gameId)}>Remove From Collection</button>
-          :
-      <button onClick={
-        () => handleAddToCollection(game.gameId)}
-      >
-        Add to My Collection
-      </button>
-}
+      {collection?.games?.some((g) => g.gameId === game.gameId) ?
+        <button onClick={
+          () => handleRemoveFromCollection(game.gameId)}
+        >
+          Remove From Collection
+        </button>
+        :
+        <button onClick={
+          () => handleAddToCollection(game.gameId)}
+        >
+          Add to My Collection
+        </button>
+      }
     </div>
   );
 }

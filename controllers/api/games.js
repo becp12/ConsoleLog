@@ -46,7 +46,7 @@ const mapGameData = (g) => ({
     gameId: g.id.toString(),
     name: g.name,
     platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: '-1', name: "Platform list not available"}],
-    summary: g.summary ?? "***",
+    summary: g.summary ?? "No summary to display",
     coverImage: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg` : "https://i.imgur.com/HnK8wNo.png",
     coverImageLarge: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg` : "https://i.imgur.com/wqWWm33.png",
     releaseDate: g.first_release_date ? new Date(g.first_release_date * 1000).toUTCString().substring(0, 16) : "Not listed",
