@@ -1,9 +1,9 @@
-import { useState, useEffect} from 'react';
+import { useState } from 'react';
 import './GameInfoContainer.css';
 import Summary from '../Summary/Summary'
 import PlaySessionForm from '../PlaySessionForm/PlaySessionForm';
 import PlaySessions from '../PlaySessions/PlaySessions';
-import * as playsessionAPI from '../../../utilities/playsessions-api'
+// import * as playsessionAPI from '../../../utilities/playsessions-api'
 
 export default function GameInfoContainer({ game }) {
     const [playSession, setPlaySession] = useState(game?.playSession)
@@ -36,7 +36,6 @@ export default function GameInfoContainer({ game }) {
                 </div>
                 <div className="tab-pane fade" id="playsessions"><PlaySessions playSession={playSession} setPlaySession={setPlaySession} game={game} /></div>
                 <div className="tab-pane fade" id="addplaysessions"><PlaySessionForm gameObjId={game._id} playSession={playSession} setPlaySession={setPlaySession} /></div>
-                
             </div>
         </div>
     );

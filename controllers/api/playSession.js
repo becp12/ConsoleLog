@@ -2,6 +2,7 @@ const Game = require('../../models/game')
 
 module.exports = {
     create,
+    delete: deleteSession,
     // getAll,
   };
 
@@ -19,6 +20,18 @@ async function create(req, res) {
     }
 }
 
+async function deleteSession(req, res) {
+    try {
+        const game = await Game.findById(req.params.gameId).populate('playSession');
+        const newPlaySessions = game.playSession.filter(p => !p._id.equals(req.params.playSessionId))
+        game.playSession = newPlaySessions;
+        game.save()
+        res.json(newPlaySessions.filter(ps => ps.user.equals(req.user._id)));
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+}
 // async function getAll(req, res) {
 //     const game = await Game.findOne({ gameId: req.params.gameId }).populate('playSession');
 //     console.log(game.playSession)
