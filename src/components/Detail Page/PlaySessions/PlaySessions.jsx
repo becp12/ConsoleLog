@@ -10,7 +10,7 @@ export default function PlaySessions({ playSession, game, setPlaySession }) {
 
   async function handleDelete(id, gameId) {
     const newPlaySessions = await playsessionAPI.removeSession(id, gameId);
-    console.log(newPlaySessions);
+    // console.log(newPlaySessions);
     setPlaySession(newPlaySessions);
   }
 

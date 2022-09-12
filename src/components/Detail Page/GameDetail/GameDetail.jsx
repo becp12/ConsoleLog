@@ -2,7 +2,7 @@ import './GameDetail.css';
 import GameDetailInfoContainer from '../GameDetailInfoContainer/GameDetailInfoContainer'
 
 export default function GameDetail({ game, collection, setCollection }) {
-    console.log(game)
+    // console.log(game)
 
     return (
         <div className="game-detail">

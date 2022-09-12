@@ -16,6 +16,6 @@ async function sendRequestTwitch(url, method = 'POST', payload = null) {
   // res.json() returns a promise that resolves
   // to the data that was sent back by the server
   if (res.ok) return res.json();
-  console.log(await res.json())
+  // console.log(await res.json())
   throw new Error('Bad Request');
 }
