@@ -1,7 +1,7 @@
-// import { Link, NavLink, useParams } from 'react-router-dom'
 import './GameInfoNav.css';
 
-export default function GameInfoNav({ game }) {
+export default function GameInfoNav({ game, collection, setCollection }) {
+    console.log(collection)
     return (
         <div className="game-info-nav">
             <ul className="nav nav-tabs" id="myTab" >
@@ -14,12 +14,16 @@ export default function GameInfoNav({ game }) {
                 <li className="nav-item">
                     <button className="nav-link" id="platforms-tab" data-bs-toggle="tab" data-bs-target="#platforms" type="button">Platforms</button>
                 </li>
-                <li className="nav-item">
-                    <button className="nav-link" id="playsessions-tab" data-bs-toggle="tab" data-bs-target="#playsessions" type="button">Play Sessions</button>
-                </li>
-                <li className="nav-item">
-                    <button className="nav-link" id="addplaysessions-tab" data-bs-toggle="tab" data-bs-target="#addplaysessions" type="button">Add Play Session</button>
-                </li>
+                {collection?.games?.some(g => g.gameId === game.gameId) &&
+                <>
+                    <li className="nav-item">
+                        <button className="nav-link" id="playsessions-tab" data-bs-toggle="tab" data-bs-target="#playsessions" type="button">Play Sessions</button>
+                    </li>
+                    <li className="nav-item">
+                        <button className="nav-link" id="addplaysessions-tab" data-bs-toggle="tab" data-bs-target="#addplaysessions" type="button">Add Play Session</button>
+                    </li>
+                </>
+                }
             </ul>
         </div>
     );

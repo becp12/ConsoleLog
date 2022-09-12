@@ -4,9 +4,8 @@ import AllGameTiles from '../../components/AllGameTiles/AllGameTiles'
 import SearchForm from '../../components/SearchForm/SearchForm'
 import * as gamesAPI from '../../utilities/games-api';
 
-export default function AllGamesPage() {
+export default function AllGamesPage({ collection, setCollection }) {
   const [games, setGames] = useState([]);
-  const [collection, setCollection] = useState([]);
 
   useEffect(function() {
     async function getGames() {
@@ -17,10 +16,6 @@ export default function AllGamesPage() {
     }
     getGames();
   }, []);
-
-  // async function handleAddToCollection(gameId) {
-  //   await gamesAPI.addToCollection(gameId);
-  // }
 
   return (
     <div className="all-games-page">

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service'
+import * as gamesAPI from '../../utilities/games-api';
 import AuthPage from '../AuthPage/AuthPage';
 import MyCollectionPage from '../MyCollectionPage/MyCollectionPage';
 import AllGamesPage from '../AllGamesPage/AllGamesPage';
@@ -12,6 +13,15 @@ import './App.css';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [collection, setCollection] = useState();
+  
+  useEffect(function() {
+    async function getAllGames() {
+      const collection = await gamesAPI.getMyGames();
+      setCollection(collection);
+    }
+    getAllGames();
+  }, []);
 
   return (
     <main className="App">
@@ -21,11 +31,11 @@ export default function App() {
         <>
           <Routes>
             {/* Route components in here */}
-            <Route path='/games/mycollection' element={<MyCollectionPage />} />
-            <Route path='/games/all' element={<AllGamesPage />} />
+            <Route path='/games/mycollection' element={<MyCollectionPage collection={collection} setCollection={setCollection} />} />
+            <Route path='/games/all' element={<AllGamesPage collection={collection} setCollection={setCollection} />} />
             <Route
               path='/games/:gameId'
-              element={<GameDetailPage />}
+              element={<GameDetailPage collection={collection} setCollection={setCollection} />}
             />
             <Route path='/*' element={<Navigate to="/games/mycollection" />} />
           </Routes>

@@ -5,8 +5,8 @@ import GameDetail from '../../components/Detail Page/GameDetail/GameDetail'
 import './GameDetailPage.css';
 import PacmanLoader from "react-spinners/PacmanLoader";
 
-export default function GameDetailPage() {
-  const [game, setGame] = useState([]);
+export default function GameDetailPage({ collection, setCollection }) {
+  const [game, setGame] = useState(null);
   const { gameId } = useParams();
 
   useEffect(function () {
@@ -17,11 +17,9 @@ export default function GameDetailPage() {
     getGame();
   }, [gameId]);
 
-  // console.log(game);
-
   return (
     <>
-      {!game.name
+      {!game
         ?
         <div className='pacman-loader'>
           <PacmanLoader
@@ -33,7 +31,7 @@ export default function GameDetailPage() {
         :
         <div className="game-detail-page">
           <h1>{game.name}</h1>
-          <GameDetail game={game} />
+          <GameDetail game={game} collection={collection} setCollection={setCollection} />
         </div>}
     </>
   );
