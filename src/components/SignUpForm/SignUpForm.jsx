@@ -2,14 +2,6 @@ import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         name: ''
-    //     };
-    //     this.handleChange = this.handleChange.bind(this)
-    // }
-
     state = {
         name: '',
         email: '',
@@ -29,7 +21,7 @@ export default class SignUpForm extends Component {
         evt.preventDefault()
         try {
             // We don't want to send the 'error' or 'confirm' property,
-            //  so let's make a copy of the state object, then delete them
+            // so let's make a copy of the state object, then delete them
             const formData = {...this.state};
             delete formData.error;
             delete formData.confirm;

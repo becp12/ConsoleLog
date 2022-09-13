@@ -1,7 +1,6 @@
 import './GameInfoNav.css';
 
 export default function GameInfoNav({ game, collection, setCollection }) {
-    // console.log(collection)
     return (
         <div className="game-info-nav">
             <ul className="nav nav-tabs" id="myTab" >

@@ -21,10 +21,6 @@ export function getMyGames() {
   return sendRequest(`${BASE_URL}/mycollection`, 'GET')
 }
 
-// export function getOneGame(gameId) {
-//   return sendRequest(`${BASE_URL}/games/${gameId}`, 'POST')
-// }
-
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }

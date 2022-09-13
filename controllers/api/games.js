@@ -23,7 +23,6 @@ async function index(req, res) {
 }
 
 async function searchForGame(req, res) {
-    // console.log(req.params.searchData, "Search For Game")
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
         'POST',
@@ -78,8 +77,6 @@ async function addToCollection(req, res) {
 }
 
 async function show(req, res) {
-    // const collection = await Collection.findOne({ user: req.user._id }).populate('games');
-    // const game = collection?.games.find(game => game.gameId === req.params.gameId)
     const game = await Game.findOne({ gameId: req.params.gameId })
     if (!game) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(

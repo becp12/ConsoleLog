@@ -1,16 +1,12 @@
-// import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
 import './PlaySessions.css';
 import * as playsessionAPI from '../../../utilities/playsessions-api'
 
 export default function PlaySessions({ playSession, game, setPlaySession }) {
-  //const { gameId } = useParams();
   if (!playSession || playSession.length === 0) return <div>No Play Sessions yet</div>
   let idToShow = playSession.length !== game.playSession.length ? playSession.at(-1)._id : undefined;
 
   async function handleDelete(id, gameId) {
     const newPlaySessions = await playsessionAPI.removeSession(id, gameId);
-    // console.log(newPlaySessions);
     setPlaySession(newPlaySessions);
   }
 

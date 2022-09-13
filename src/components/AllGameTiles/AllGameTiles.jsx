@@ -1,4 +1,3 @@
-// import { useState, useEffect } from 'react';
 import './AllGameTiles.css';
 import GameTile from '../GameTile/GameTile'
 

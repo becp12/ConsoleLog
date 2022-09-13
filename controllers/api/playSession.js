@@ -3,7 +3,6 @@ const Game = require('../../models/game')
 module.exports = {
     create,
     delete: deleteSession,
-    // getAll,
   };
 
 async function create(req, res) {

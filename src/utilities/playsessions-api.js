@@ -8,7 +8,3 @@ export function addSession(playSession, gameObjId) {
 export function removeSession(playSessionId, gameId) {
   return sendRequest(`${BASE_URL}/${gameId}/${playSessionId}`, 'DELETE');
 }
-
-// export function getAll(gameId) {
-//   return sendRequest(`${BASE_URL}/${gameId}/playsessions`, 'GET');
-// }
