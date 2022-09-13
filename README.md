@@ -15,6 +15,17 @@ In this app you can:
 Why not follow [this link](https://consolelogapp.herokuapp.com/) and get started?
 
 ## Screenshots
+Sign Up Page
+![SignUpPage](https://i.imgur.com/Hcdx3Jc.png)
+
+All Games Index Page
+![AllGamesPage](https://i.imgur.com/TJE06Ok.png)
+
+Game Detail Page - When a game in not in your collection
+![GameDetailPage](https://i.imgur.com/4Wma3my.png)
+
+Play Session Tracking Tab - When a game is in your collection
+![PlaySessionTracking](https://i.imgur.com/HZmjWO5.png)
 
 ## Technologies Used
 ![VSCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
