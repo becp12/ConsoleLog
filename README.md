@@ -39,8 +39,8 @@ Why not follow [this link](https://consolelogapp.herokuapp.com/) and get started
 ## Next Steps
 - As a User, I want to filter the game list by Gaming Platform (Console) so I only see game relevant to my preferred gaming Platform.
 - As a User, I want to sort the game list by average user rating so I can find the most popular games.
-- As a User, I want to sort the game list by release date so I can see the newest of oldest games.
+- As a User, I want to sort the game list by release date so I can see the newest or oldest games.
 - As a User, I want to see the trailer for a game to see if it's a game I might enjoy.
-- As a User, I want the app to search as I type into the search bat so I don't have to press the search button but it will automatically start searching.
+- As a User, I want the app to search as I type into the search bar so I don't have to press the search button but it will automatically start searching.
 - As a User, if I search for a game, I will click on a game to see the game detail, when I go back, I want my search results to still be visible and the search still be active.
-- As a User, I want to be wanted (with a popup or similar) that my play sessions will be deleted when I remove a game from my collection (not a problem at the moment as play sessions are not removed if a game is removed from the user's collection).
+- As a User, I want to be warned (with a popup or similar) that my play sessions will be deleted when I remove a game from my collection (not a problem at the moment as play sessions are not removed if a game is removed from the user's collection).
