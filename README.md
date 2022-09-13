@@ -7,10 +7,10 @@ Specifically, have you ever had a big break from playing a certain game, and the
 I know that's happened to me, more than once.
 
 In this app you can:
-- Add games to your game collection
-- Browse an extensive gaming database
+- Browse an extensive gaming database (via [IGDB](https://www.igdb.com/))
 - View various information about games
-- Add play sessions to any games that are in your Collection (including date, time, duration and notes!)
+- Add Games to your Game Collection
+- Add Play Sessions to any games that are in your Collection (including date, time, duration and notes!)
 
 Why not follow [this link](https://consolelogapp.herokuapp.com/) and get started?
 
@@ -42,4 +42,5 @@ Why not follow [this link](https://consolelogapp.herokuapp.com/) and get started
 - As a User, I want to sort the game list by release date so I can see the newest of oldest games.
 - As a User, I want to see the trailer for a game to see if it's a game I might enjoy.
 - As a User, I want the app to search as I type into the search bat so I don't have to press the search button but it will automatically start searching.
-- As a User, I want to be wanted (with a popup or similar) that my play sessions will be deleted when I remove a game from my collection (not a problem at the moment as play sessions are not removed if a game is removed from the user's collection)
+- As a User, if I search for a game, I will click on a game to see the game detail, when I go back, I want my search results to still be visible and the search still be active.
+- As a User, I want to be wanted (with a popup or similar) that my play sessions will be deleted when I remove a game from my collection (not a problem at the moment as play sessions are not removed if a game is removed from the user's collection).
