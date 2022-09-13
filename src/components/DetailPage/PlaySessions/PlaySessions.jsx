@@ -28,7 +28,7 @@ export default function PlaySessions({ playSession, game, setPlaySession }) {
             </h2>
             <div id={`collapse${p._id}`} className={`accordion-collapse collapse ${(idToShow === undefined ? idx === 0 : p._id === idToShow) ? "show" : ""} notes-container`} data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                <p>{p.notes}</p>
+                <p>{p.notes ? p.notes : 'No notes saved to this play session entry'}</p>
                 <button onClick={() => handleDelete(p._id, game._id)}>Delete</button>
               </div>
             </div>

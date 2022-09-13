@@ -44,3 +44,7 @@ button.accordion-button {
     max-width: 6rem;
     font-size: .9rem;
 }
+
+.accordion-body > p {
+    white-space: pre-wrap
+}

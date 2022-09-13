@@ -12,18 +12,6 @@ code {
     monospace;
 }
 
-/* CSS Custom Properties */
-/* :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954;
-} */
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -37,6 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* padding: 2vmin; */
   height: 100vh;
+  background-color: rgb(239, 255, 239);
 }
 
 code {
