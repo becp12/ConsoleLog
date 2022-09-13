@@ -19,14 +19,15 @@ button.nav-link {
     display: flex;
     justify-content: space-between;
     border: none;
+    flex-wrap: nowrap;
 }
 
 .nav-tabs .nav-link {
     border-radius: 0;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    margin: 1rem 1rem;
-    margin-bottom: -1px;
+    margin: 1rem 1rem 0;
+    height: 4rem;
     border: none;
 }
 

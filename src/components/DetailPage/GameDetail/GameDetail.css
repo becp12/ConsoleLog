@@ -1,12 +1,14 @@
 .game-detail {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 65vh;
 }
 
 .game-detail > .image-div {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     padding-right: 25%;
+    justify-content: center;
 }
 
 .game-detail > .image-div > img{

@@ -1,7 +1,6 @@
 .all-game-tiles {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    grid-template-rows: repeat(auto, 1fr);
     grid-template-rows: auto;
     grid-gap: 4rem;
 }

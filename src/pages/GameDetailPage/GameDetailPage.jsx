@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as gamesAPI from '../../utilities/games-api';
-import GameDetail from '../../components/Detail Page/GameDetail/GameDetail'
+import GameDetail from '../../components/DetailPage/GameDetail/GameDetail'
 import './GameDetailPage.css';
 import PacmanLoader from "react-spinners/PacmanLoader";
 

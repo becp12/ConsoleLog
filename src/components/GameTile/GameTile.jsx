@@ -17,10 +17,12 @@ export default function GameTile({ game, collection, setCollection }) {
   return (
     <div className="game-tile" key={game.gameId}>
       <Link to={`/games/${game.gameId}`} >
-        <h2>{game.name}</h2>
-        <h4>Release Date: {game.releaseDate}</h4>
-        <div>
-          <img src={game.coverImage} alt="Game cover" />
+        <div className="linked-content">
+          <h2 className="text-overflow">{game.name}</h2>
+          <h4>Release Date: {game.releaseDate}</h4>
+          <div className="game-tile-img-div">
+            <img src={game.coverImage} alt="Game cover" />
+          </div>
         </div>
       </Link>
       {collection?.games?.some((g) => g.gameId === game.gameId) ?

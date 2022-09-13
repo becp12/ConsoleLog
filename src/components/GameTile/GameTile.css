@@ -1,16 +1,36 @@
-.game-tile {
-    display: grid;
+.game-tile > button {
+    margin: 0;
 }
 
 .game-tile > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
     color: black;
 }
 
-.game-tile > h2, .game-tile > h4 {
-    margin: 0;
+.game-tile-img-div {
+    min-height: 374px;
+    min-width: 264px;
+    margin: auto;
+}
+
+.text-overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+.linked-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 6fr;   
+}
+
+.linked-content > h4 {
+    min-height: 58px;
+    margin: auto;
+}
+
+.linked-content > h2 {
+    margin: auto;
 }

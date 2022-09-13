@@ -4,6 +4,11 @@
     border-radius: 0 0 1rem 1rem;
     margin: 0 1rem 1rem 1rem;
     margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 85vh;
+    /* height: 97%; */
 }
 
 .platform-list {
@@ -12,4 +17,9 @@
 
 .tab-content {
     padding: 1rem;
+}
+
+.play-session-div {
+    overflow-y: scroll;
+    width: 80vh;
 }

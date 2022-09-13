@@ -2,7 +2,7 @@ form.play-session-form {
     font-size: 1.75vmin;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 80vh;
 }
 
 .play-session-form-container > form > button[type="submit"] {

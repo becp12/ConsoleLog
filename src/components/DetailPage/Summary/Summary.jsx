@@ -1,7 +1,7 @@
 export default function Summary({ game }) {
     return (
         <div className="summary">
-            {game.summary}
+            <h2>{game.summary}</h2>
         </div>
     );
 }
