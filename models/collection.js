@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const collectionSchema = new Schema({
-    games: [{type: Schema.Types.ObjectId, ref: 'Game'}],
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    games: [{type: Schema.Types.ObjectId, ref: "Game"}],
+    user: {type: Schema.Types.ObjectId, ref: "User"},
 })
 
 collectionSchema.statics.addGameToCollection = async function(userId, gameId) {
@@ -15,7 +15,7 @@ collectionSchema.statics.addGameToCollection = async function(userId, gameId) {
         // upsert option creates the doc if it doesn't exist!
         { upsert: true, new: true }
     )
-    .populate('games');
+    .populate("games");
 }
 
-module.exports = mongoose.model('Collection', collectionSchema);
+module.exports = mongoose.model("Collection", collectionSchema);

@@ -22,9 +22,9 @@ async function create(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email })
-    if (!user) throw new Error('Invalid Credentials');
+    if (!user) throw new Error("Invalid Credentials");
     const match = await bcrypt.compare(req.body.password, user.password);
-    if (!match) throw new Error('Invalid Credentials');
+    if (!match) throw new Error("Invalid Credentials");
     const token = createJWT(user);
     // Yes, we can serialize (to JSON) strings
     res.json(token);
@@ -40,6 +40,6 @@ function createJWT(user) {
     // additional data payload
     { user },
     process.env.SECRET,
-    { expiresIn: '24h' }
+    { expiresIn: "24h" }
   );
 }

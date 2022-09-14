@@ -19,12 +19,12 @@ export default function PlaySessions({ playSession, game, setPlaySession }) {
           <div className="accordion-item" key={idx}>
             <h2 className="accordion-header" id={`heading${p._id}`}>
               <button className={`accordion-button ${(idToShow === undefined ? idx === 0 : p._id === idToShow) ? "" : "collapsed"}`} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${p._id}`}>
-                {new Date(p.date)?.toLocaleDateString()}{p.time ? `, ${p.time}` : ''}{`, ${p.duration}`}{p.duration > 1 ? ' hours' : ' hour'}
+                {new Date(p.date)?.toLocaleDateString()}{p.time ? `, ${p.time}` : ""}{`, ${p.duration}`}{p.duration > 1 ? " hours" : " hour"}
               </button>
             </h2>
             <div id={`collapse${p._id}`} className={`accordion-collapse collapse ${(idToShow === undefined ? idx === 0 : p._id === idToShow) ? "show" : ""} notes-container`} data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                <p>{p.notes ? p.notes : 'No notes saved to this play session entry'}</p>
+                <p>{p.notes ? p.notes : "No notes saved to this play session entry"}</p>
                 <button onClick={() => handleDelete(p._id, game._id)}>Delete</button>
               </div>
             </div>

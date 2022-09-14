@@ -4,17 +4,17 @@ import * as playsessionAPI from '../../../utilities/playsessions-api'
 
 export default function PlaySessionForm({ gameObjId, playSession, setPlaySession }) {
     const [formData, setFormData] = useState({
-        date: '',
-        time: '',
-        duration: '',
-        notes: '',
+        date: "",
+        time: "",
+        duration: "",
+        notes: "",
     })
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
     function handleChange(evt) {
         const newFormData = { ...formData, [evt.target.name]: evt.target.value };
         setFormData(newFormData);
-        setError('');
+        setError("");
     }
 
     async function handleSubmit(evt) {
@@ -25,18 +25,18 @@ export default function PlaySessionForm({ gameObjId, playSession, setPlaySession
           // will resolve to the user object included in the
           // payload of the JSON Web Token (JWT)
             const newPlaySession = await playsessionAPI.addSession(formData, gameObjId);
-            newPlaySession.date = newPlaySession.date.split('T')[0]
+            newPlaySession.date = newPlaySession.date.split("T")[0]
             setPlaySession([...playSession, newPlaySession]);
             setFormData({
-                date: '',
-                time: '',
-                duration: '',
-                notes: '',
+                date: "",
+                time: "",
+                duration: "",
+                notes: "",
             });
             const sessionTab = new window.bootstrap.Tab(document.querySelector('#myTab button[data-bs-target="#playsessions"]'));
             sessionTab.show();
         } catch (err) {
-            setError('Add Session Failed - Try Again');
+            setError("Add Session Failed - Try Again");
         }
     }
 
@@ -72,7 +72,7 @@ export default function PlaySessionForm({ gameObjId, playSession, setPlaySession
                     value={formData.notes}
                     placeholder="Enter any notes..."
                 />
-                <button type='submit'>Add Play Session</button>
+                <button type="submit">Add Play Session</button>
             </form>
             <p className="error-message">{error}</p>
         </div>

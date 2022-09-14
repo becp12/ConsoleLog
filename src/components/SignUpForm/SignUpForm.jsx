@@ -3,17 +3,17 @@ import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
     state = {
-        name: '',
-        email: '',
-        password: '',
-        confirm: '',
-        error: ''
+        name: "",
+        email: "",
+        password: "",
+        confirm: "",
+        error: ""
     };
 
     handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value,
-            error: ''
+            error: ""
         });
     };
 
@@ -29,7 +29,7 @@ export default class SignUpForm extends Component {
             this.props.setUser(user);
         } catch {
             // An error occurred, like a dupe email address
-            this.setState({ error: 'Sign Up Failed - Try Again' })
+            this.setState({ error: "Sign Up Failed - Try Again" })
         }
     };
 

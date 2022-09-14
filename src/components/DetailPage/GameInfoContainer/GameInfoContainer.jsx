@@ -10,7 +10,7 @@ export default function GameInfoContainer({ game, collection, setCollection }) {
     const platforms = game.platforms.map(p => <li key={p.id}><h2>{p.name}</h2></li>)
     
     return (
-        <div className='game-info-container'>
+        <div className="game-info-container">
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active" id="summary"><Summary game={game} /></div>
                 <div className="tab-pane fade" id="releaseDate"><h2>{game.releaseDate}</h2></div>

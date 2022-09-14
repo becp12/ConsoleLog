@@ -15,7 +15,7 @@ module.exports = {
 async function index(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
-        'POST',
+        "POST",
         `fields ${SearchFields}; limit 100; sort total_rating desc; where total_rating != null; where total_rating_count > 200;`
     )
     const gamesData = gamesJson.map(mapGameData)
@@ -25,7 +25,7 @@ async function index(req, res) {
 async function searchForGame(req, res) {
     const gamesJson = await TwitchAPI.sendRequestTwitch(
         "https://api.igdb.com/v4/games",
-        'POST',
+        "POST",
         `search "${req.params.searchData}"; fields ${SearchFields}; limit 50;`
     )
     const gamesData = gamesJson.map(mapGameData)
@@ -33,7 +33,7 @@ async function searchForGame(req, res) {
 }
 
 async function myIndex(req, res) {
-    const collection = await Collection.findOne({ user: req.user._id }).populate('games');
+    const collection = await Collection.findOne({ user: req.user._id }).populate("games");
     if (!collection) {
         res.json({});
         return;
@@ -44,7 +44,7 @@ async function myIndex(req, res) {
 const mapGameData = (g) => ({
     gameId: g.id.toString(),
     name: g.name,
-    platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: '-1', name: "Platform list not available"}],
+    platforms: g.platforms ? g.platforms?.map(p => ({id: p.id, name: p.name})) : [{id: "-1", name: "Platform list not available"}],
     summary: g.summary ?? "No summary to display",
     coverImage: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${g.cover.image_id}.jpg` : "https://i.imgur.com/HnK8wNo.png",
     coverImageLarge: g.cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${g.cover.image_id}.jpg` : "https://i.imgur.com/wqWWm33.png",
@@ -61,7 +61,7 @@ async function addToCollection(req, res) {
         // fetch infomation from the API
         const gamesJson = await TwitchAPI.sendRequestTwitch(
             "https://api.igdb.com/v4/games",
-            'POST',
+            "POST",
             `fields ${SearchFields}; where id = ${gameId}; limit 1;`
             );
         const gameData = gamesJson.map(mapGameData)[0]
@@ -81,7 +81,7 @@ async function show(req, res) {
     if (!game) {
         const gamesJson = await TwitchAPI.sendRequestTwitch(
             "https://api.igdb.com/v4/games",
-            'POST',
+            "POST",
             `fields ${SearchFields}; where id = ${req.params.gameId}; limit 1;`
         );
         const gameData = gamesJson.map(mapGameData)[0]
@@ -93,7 +93,7 @@ async function show(req, res) {
 }
 
 async function deleteGame(req, res) {
-    const collection = await Collection.findOne({user: req.user._id}).populate('games');
+    const collection = await Collection.findOne({user: req.user._id}).populate("games");
     collection.games = collection.games.filter((g) => g.gameId !== req.params.gameId);
     collection.save();
     res.json(collection)

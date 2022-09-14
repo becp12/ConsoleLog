@@ -21,7 +21,7 @@ async function create(req, res) {
 
 async function deleteSession(req, res) {
     try {
-        const game = await Game.findById(req.params.gameId).populate('playSession');
+        const game = await Game.findById(req.params.gameId).populate("playSession");
         const newPlaySessions = game.playSession.filter(p => !p._id.equals(req.params.playSessionId))
         game.playSession = newPlaySessions;
         game.save()

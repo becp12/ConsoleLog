@@ -21,7 +21,7 @@ export default function GameDetailPage({ collection, setCollection }) {
     <>
       {!game
         ?
-        <div className='pacman-loader'>
+        <div className="pacman-loader">
           <PacmanLoader
             color="#f5e742"
             size={50}

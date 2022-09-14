@@ -28,7 +28,7 @@ export default function SearchForm({ games, setGames }) {
                     placeholder="Search..."
                     value={formData.search}
                 />
-                <button type='submit'>Search</button>
+                <button type="submit">Search</button>
             </form>
         </div>
     );

@@ -3,14 +3,14 @@ import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: ""
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
+    setError("");
   }
 
   async function handleSubmit(evt) {
@@ -23,7 +23,7 @@ export default function LoginForm({ setUser }) {
       const user = await usersService.login(credentials);
       setUser(user);
     } catch {
-      setError('Log In Failed - Try Again');
+      setError("Log In Failed - Try Again");
     }
   }
 

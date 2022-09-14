@@ -20,16 +20,16 @@ export default function NavBar({ user, setUser }) {
       { user ?
         <>
           <div className="nav-links">
-            <NavLink to='games/all' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>All Games</NavLink>
-            <NavLink to='games/mycollection' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>My Collection</NavLink>
+            <NavLink to="games/all" className={({ isActive }) => (isActive ? "active" : "inactive")}>All Games</NavLink>
+            <NavLink to="games/mycollection" className={({ isActive }) => (isActive ? "active" : "inactive")}>My Collection</NavLink>
           </div>
           <div className="user-detail">
             Welcome, {user.name}!
-            <Link to='' onClick={handleLogOut}>Log Out</Link>
+            <Link to="" onClick={handleLogOut}>Log Out</Link>
           </div>
         </>
       :
-        ''
+        ""
       }
 
 
