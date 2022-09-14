@@ -47,6 +47,8 @@ Play Session Tracking Tab - When a game is in your collection
 ## Getting Started
 [Click to open ConsoleLog!](https://consolelogapp.herokuapp.com/)
 
+[Trello Board used for planning](https://trello.com/b/L6LXpNep/project-3-consolelog)
+
 ## Next Steps
 - As a User, I want to filter the game list by Gaming Platform (Console) so I only see game relevant to my preferred gaming Platform.
 - As a User, I want to sort the game list by average user rating so I can find the most popular games.
