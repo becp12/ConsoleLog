@@ -12,7 +12,7 @@ In this app you can:
 - Add Games to your Game Collection
 - Add Play Sessions to any games that are in your Collection (including date, time, duration and notes!)
 
-Why not follow [this link](https://consolelogapp.herokuapp.com/) and get started?
+Why not follow [this link](https://console-log.azurewebsites.net/) and get started?
 
 ## Screenshots
 Sign Up Page
@@ -45,7 +45,7 @@ Play Session Tracking Tab - When a game is in your collection
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
 ## Getting Started
-[Click to open ConsoleLog!](https://consolelogapp.herokuapp.com/)
+[Click to open ConsoleLog!](https://console-log.azurewebsites.net/)
 
 [Trello Board used for planning](https://trello.com/b/L6LXpNep/project-3-consolelog)
 
