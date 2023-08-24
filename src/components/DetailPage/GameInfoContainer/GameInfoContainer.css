@@ -17,9 +17,15 @@
 
 .tab-content {
     padding: 1rem;
+    /* overflow-y: scroll; */
 }
 
 .play-session-div {
     overflow-y: scroll;
     width: 80vh;
 }
+
+/* #summary {
+    overflow-y: scroll;
+    height: 100%;
+} */

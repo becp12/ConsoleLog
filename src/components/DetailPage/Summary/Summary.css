@@ -1,0 +1,12 @@
+.summary > h2 {
+    white-space: pre-wrap;
+    /* text-align: justify; */
+}
+
+#summary {
+    height: 50vh;
+    width: 85vh;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    padding: 1rem;
+}
