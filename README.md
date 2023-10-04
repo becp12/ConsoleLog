@@ -1,5 +1,7 @@
 # ConsoleLog
 
+[Click to view video demo of ConsoleLog](https://youtu.be/Q6LyEmgK5j8)
+
 ConsoleLog is an app designed for anyone who enjoys playing video games.
 
 Specifically, have you ever had a big break from playing a certain game, and then when you come back to it you completely forget what you were doing or what you were up to?
